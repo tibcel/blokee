@@ -48,10 +48,10 @@ def get_area_around_corner(whole_table, corner_coordinates, length):
 
     if x_start_index < 0:
         x_start_index = 0
-    elif x_start_index > 0:
-        pass
-        #x_start_index = x_start_index
-    
+
+    if y_start_index < 0:
+        y_start_index = 0
+
     if y < length:
         y= length
 
@@ -106,29 +106,6 @@ def normalize_position(relative_position, starting_position):
     return [a + b for a, b in zip(relative_position, starting_position)]
 
 
-# def validate_area_around_piece(table, piece, starting_position_x, starting_position_y):
-
-#     for row in range(0, piece.shape[0]):
-#         for column in range(0, piece.shape[1]):
-#             if int(piece.iloc[row, column]) == 1:
-#                 print(f"found 1 on {row}_{column} value" + str(piece[column][row]))
-                
-#                 x, y = starting_position_x+column, starting_position_y+row
-#                 print(f"pozitia in tabela_mare a celulei {x}, {y} ")
-
-#                 for i in [x-1,x+1]:
-#                     print(f"lookign on cell {i}_{y} for 10 value in cell {str(table[i][y])}")
-#                     if int(table[i][y]) == 10:
-#                         return False
-
-#                 for j in [y-1, y+1]:
-#                     print(f"lookign on cell {x}_{j} for 10 value in cell{str(table[x][j])}")
-#                     if int(table[x][j]) == 10:
-#                         return False
-    
-#     return True
-
-
 
 def main(input_file, pieces_file, piece_name, corner_coordinates_uipath, no_of_rotations, is_mirror, score, save_to_path):
     """
@@ -161,7 +138,7 @@ def main(input_file, pieces_file, piece_name, corner_coordinates_uipath, no_of_r
         corner_coordinates = tuple(int(n) for n in corner_coordinate_element.split("_"))
 
         #get area around corner, atm set up for 4 can become argument
-        (sliced_table, starting_position) = get_area_around_corner(whole_table, corner_coordinates, max(piece.shape[0], piece.shape[1]))
+        (sliced_table, starting_position) = get_area_around_corner(whole_table, corner_coordinates, max(piece.shape[0], piece.shape[1])+1)
         print("Starting Position: "+str(starting_position))
 
         #create a dictioary with all of the pieces rotation
@@ -182,5 +159,28 @@ def main(input_file, pieces_file, piece_name, corner_coordinates_uipath, no_of_r
 
 #main("C:/Users/bibi/OneDrive/Documents/UiPath/cami/Workflows/Pytonu/corners.xlsx", "C:/Users/bibi/OneDrive/Documents/UiPath/cami/Workflows/Pytonu/Pieces.xlsx",
 #"F", "7_10,9_10", 4, True, 40, "C:/Users/bibi/OneDrive/Documents/UiPath/cami/Workflows/Pytonu/results.xlsx")
+
+
+# def validate_area_around_piece(table, piece, starting_position_x, starting_position_y):
+
+#     for row in range(0, piece.shape[0]):
+#         for column in range(0, piece.shape[1]):
+#             if int(piece.iloc[row, column]) == 1:
+#                 print(f"found 1 on {row}_{column} value" + str(piece[column][row]))
+                
+#                 x, y = starting_position_x+column, starting_position_y+row
+#                 print(f"pozitia in tabela_mare a celulei {x}, {y} ")
+
+#                 for i in [x-1,x+1]:
+#                     print(f"lookign on cell {i}_{y} for 10 value in cell {str(table[i][y])}")
+#                     if int(table[i][y]) == 10:
+#                         return False
+
+#                 for j in [y-1, y+1]:
+#                     print(f"lookign on cell {x}_{j} for 10 value in cell{str(table[x][j])}")
+#                     if int(table[x][j]) == 10:
+#                         return False
+    
+#     return True
 
 
