@@ -1,0 +1,15 @@
+﻿{
+  "Id": "gnjHSGPqHk-McxEYE0mMmA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/gnjHSGPqHk-McxEYE0mMmA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "AddSingleChoice",
+  "Description": "all players",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:47:28.891433Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T13:47:28.891433Z"
+}

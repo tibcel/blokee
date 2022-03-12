@@ -1,0 +1,16 @@
+﻿{
+  "Id": "CN6q19aAY0Gtlpklu6Q4HA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/CN6q19aAY0Gtlpklu6Q4HA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/sJf5u3oWqUGRE802DIajlw",
+  "Name": "L4",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T22:14:37.2696017Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T22:16:03.8287031Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

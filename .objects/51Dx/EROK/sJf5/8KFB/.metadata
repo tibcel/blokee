@@ -1,0 +1,16 @@
+﻿{
+  "Id": "8KFBiwXyKkCus_NI0IN8Ig",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/8KFBiwXyKkCus_NI0IN8Ig",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/sJf5u3oWqUGRE802DIajlw",
+  "Name": "Z4",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T22:14:37.7316056Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T22:16:05.9372406Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

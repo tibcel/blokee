@@ -1,0 +1,16 @@
+﻿{
+  "Id": "iMdC4aEuGE6lQUDxGJwIqA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/iMdC4aEuGE6lQUDxGJwIqA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/eobKCJR0NUav7SJD14cjBQ",
+  "Name": "R-ThirdAdd",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T19:27:59.0575045Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T19:28:55.8248793Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Id": "HBtN7xH3QUS3vfiTXoVRVA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/HBtN7xH3QUS3vfiTXoVRVA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/sJf5u3oWqUGRE802DIajlw",
+  "Name": "V5",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T22:14:37.8516015Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T22:14:37.8516015Z"
+}

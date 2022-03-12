@@ -1,0 +1,515 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Board" Type="InArgument(ui:UiElement)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_RoundNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="io_MyColor" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_AvailablePieces" Type="InOutArgument(scg:List(x:String))" />
+    <x:Property Name="in_PlayTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_RectangleDictionary" Type="InArgument(scg:Dictionary(x:Int32, scg:List(sd1:Rectangle)))" />
+    <x:Property Name="in_PiecesDT" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_PinLocationsDT" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <this:Process.in_PinLocationsDT>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Process.in_PinLocationsDT>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>759.2,3647.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Python</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="524.8,3582.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[in_roundNumber = 1]" DisplayName="If first round" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke WhoAmI workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Info" LogEntry="OnlyInvocation" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\WhoAmI.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_myColor">[io_myColor]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_roundNumber &lt; 4]" DisplayName="If default moves" sap:VirtualizedContainerService.HintSize="483.2,720.8" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Sequence opening strategy" sap:VirtualizedContainerService.HintSize="420,532" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="flip" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SelectDefaultPieces workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\SelectDefaultPieces.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_roundNumber" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_myColor">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_myColor" />
+              </InArgument>
+              <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_AvailablePieces">
+                <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="io_AvailablePieces" />
+              </InOutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Assign DisplayName="Assign flip" sap:VirtualizedContainerService.HintSize="378.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[flip]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("Flip").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Switch x:TypeArguments="x:String" DisplayName="Switch opening based on color" Expression="[io_myColor]" sap:VirtualizedContainerService.HintSize="378.4,52.8" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="blue" DisplayName="Invoke BlueOpen workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\BlueOpen.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">[in_roundNumber]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocationsDT">[in_PinLocationsDT]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="red" DisplayName="Invoke RedOpen workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\RedOpen.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">[in_roundNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_flip" />
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocations">[in_PinLocationsDT]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="green" DisplayName="Invoke GreenOpen workflow" sap:VirtualizedContainerService.HintSize="334.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\GreenOpen.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">[in_roundNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_flip">[flip]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocations">[in_PinLocationsDT]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="orange" DisplayName="Invoke OrangeOpen workflow" sap:VirtualizedContainerService.HintSize="342.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\OrangeOpen.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">[in_roundNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_flip">[flip]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocations">[in_PinLocationsDT]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Switch>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="378.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Done with &quot; + in_RoundNumber.ToString + &quot; part of opening&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_roundNumber &gt; 3]" DisplayName="If choosed piece" sap:VirtualizedContainerService.HintSize="483.2,2161.6" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Sequence choose piece" sap:VirtualizedContainerService.HintSize="420,1972.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="pinX" />
+            <Variable x:TypeArguments="x:Int32" Name="pinY" />
+            <Variable x:TypeArguments="x:String" Name="piecePosition" />
+            <Variable x:TypeArguments="x:Int32" Name="zoneX" />
+            <Variable x:TypeArguments="x:Int32" Name="zoneY" />
+            <Variable x:TypeArguments="sd:DataTable" Name="ColorTable" />
+            <Variable x:TypeArguments="x:String" Name="strCorners" />
+            <Variable x:TypeArguments="sd:DataRow" Name="BestRow" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TableReading_GetCellColors workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\TableReading\TableReading_GetCellColors.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:Int32, scg:List(sd1:Rectangle))" x:Key="in_RectangleDictionary">[in_RectangleDictionary]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_CellSize">[CInt(in_Config("SSSelfSize"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PlayerColor">[io_MyColor.ToLower]</InArgument>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColorsPath">[in_Config("ColorsPath").ToString]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ColorTable">[ColorTable]</OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PlayTable">[in_PlayTable]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:Comment sap:VirtualizedContainerService.HintSize="378.4,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Get available corners" />
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_CornersTable = in_ColorsTable.Copy&#xD;&#xA;Dim CurrentCell As String&#xD;&#xA;in_PlayerColor = in_PlayerColor.tolower.Trim&#xD;&#xA;Dim i_m As Int32 = 0&#xD;&#xA;Dim j_n As Int32 = 0&#xD;&#xA;Dim ipm As Int32 = 0&#xD;&#xA;Dim jpn As Int32 = 0&#xD;&#xA;Dim FlagEnemyCorner As Boolean = False&#xD;&#xA;Dim FlagPlayerCorner As Boolean = False&#xD;&#xA;Dim EnemiesList As New list(Of String)&#xD;&#xA;Dim PlayerList As New list(Of String)&#xD;&#xA;Dim DummyTable As New system.data.datatable&#xD;&#xA;Dim ResultList As New list(Of String)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;EnemiesList = in_PlayersArray.ToList&#xD;&#xA;PlayerList = {in_playerColor,&quot;10&quot;}.tolist&#xD;&#xA;&#xD;&#xA;console.writeline(&quot;PlayerList: &quot;+String.join(&quot;,&quot;c, PlayerList))&#xD;&#xA;&#xD;&#xA;EnemiesList.remove(in_playerColor)&#xD;&#xA;EnemiesList.remove(&quot;10&quot;)&#xD;&#xA;&#xD;&#xA;console.writeline(&quot;EnemiesList: &quot;+String.join(&quot;,&quot;c, EnemiesList))&#xD;&#xA;&#xD;&#xA;For Each i As Int32 In enumerable.range(0, in_colorsTable.rows.count)&#xD;&#xA;&#x9;For Each j As Int32 In enumerable.range(0, in_colorsTable.columns.count)&#xD;&#xA;&#x9;&#x9;CurrentCell = in_ColorsTable(i)(j).toString.tolower.trim&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;If PlayerList.contains(CurrentCell) Then&#xD;&#xA;&#x9;&#x9;&#x9;out_CornersTable(i)(j) = &quot;10&quot;&#xD;&#xA;&#x9;&#x9;&#x9;Continue For&#xD;&#xA;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;If EnemiesList.contains(CurrentCell) Then&#xD;&#xA;&#x9;&#x9;&#x9;out_CornersTable(i)(j) = &quot;20&quot;&#xD;&#xA;&#x9;&#x9;&#x9;Continue For&#xD;&#xA;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;If CurrentCell.equals(&quot;0&quot;) Then&#xD;&#xA;&#x9;&#x9;&#x9;Try&#xD;&#xA;&#x9;&#x9;&#x9;For Each m As Int32 In {-1, 1}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;For Each n As Int32 In {-1, 1}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;i_m = i - m&#xD;&#xA;                        If i_m &lt; 0 Then&#xD;&#xA;                            i_m = 0&#xD;&#xA;                        End If&#xD;&#xA;                        If i_m &gt; 19 Then&#xD;&#xA;                            i_m = 19&#xD;&#xA;                        End If&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;j_n = j - n&#xD;&#xA;                        If j_n &lt; 0 Then&#xD;&#xA;                           j_n = 0&#xD;&#xA;                        End If                           &#xD;&#xA;                        If j_n &gt; 19 Then&#xD;&#xA;                            j_n = 19&#xD;&#xA;                        End If&#xD;&#xA;&#xD;&#xA;                        ipm = i + m&#xD;&#xA;                        If ipm &lt; 0 Then&#xD;&#xA;                           ipm = 0&#xD;&#xA;                        End If                           &#xD;&#xA;                        If ipm &gt; 19 Then&#xD;&#xA;                            ipm = 19&#xD;&#xA;                        End If&#xD;&#xA;&#xD;&#xA;                        jpn = j+ n&#xD;&#xA;                        If jpn &lt; 0 Then&#xD;&#xA;                           jpn = 0&#xD;&#xA;                        End If&#xD;&#xA;                        If jpn &gt; 19 Then&#xD;&#xA;                            jpn = 19&#xD;&#xA;                        End If&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;If PlayerList.contains(out_CornersTable(i_m)(j).toString) Or PlayerList.contains(out_CornersTable(i)(j_n).toString) Then&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;out_CornersTable(i)(j) = &quot;edge_player&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Throw New BusinessRuleException(&quot;edge_player&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;If EnemiesList.contains(out_CornersTable(i_m)(j_n).toString) And &#xD;&#xA;                        Not (EnemiesList.contains(out_CornersTable(i)(j_n).toString) Or &#xD;&#xA;                        EnemiesList.contains(out_CornersTable(i_m)(j).toString) Or&#xD;&#xA;                        EnemiesList.contains(out_CornersTable(ipm)(j).toString) Or &#xD;&#xA;                        EnemiesList.contains(out_CornersTable(i)(jpn).toString)) Then&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;out_CornersTable(i)(j) = &quot;corner_enemy&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;FlagEnemyCorner = True&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;If PlayerList.contains(out_CornersTable(i_m)(j_n).toString) Then&#xD;&#xA;                            out_CornersTable(i)(j) = &quot;corner_player&quot;&#xD;&#xA;                            FlagPlayerCorner = True&#xD;&#xA;                        End If&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;If (FlagEnemyCorner And FlagPlayerCorner) And&#xD;&#xA;                        Not (EnemiesList.contains(out_CornersTable(i)(j_n).toString) Or &#xD;&#xA;                        EnemiesList.contains(out_CornersTable(i_m)(j).toString) Or&#xD;&#xA;                        EnemiesList.contains(out_CornersTable(ipm)(j).toString) Or &#xD;&#xA;                        EnemiesList.contains(out_CornersTable(i)(jpn).toString)) Then&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;out_CornersTable(i)(j) = &quot;corner_common&quot;&#xD;&#xA;                            FlagEnemyCorner = False&#xD;&#xA;                            FlagPlayerCorner = False&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#xD;&#xA;                        FlagEnemyCorner = False&#xD;&#xA;                        FlagPlayerCorner = False&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Next&#xD;&#xA;&#x9;&#x9;&#x9;Next&#xD;&#xA;&#x9;&#x9;Catch ex As Exception&#xD;&#xA;&#x9;&#x9;&#x9;console.writeline(ex.source+&quot; &quot;+ex.message)&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;End Try&#xD;&#xA;&#x9;&#x9;End If&#xD;&#xA;&#x9;Next&#xD;&#xA;&#x9;Next&#xD;&#xA;&#xD;&#xA;DummyTable = out_CornersTable.Copy&#xD;&#xA;&#xD;&#xA;For Each i As int32 In enumerable.range(0, DummyTable.rows.count)&#xD;&#xA;    For Each j As int32 In enumerable.range(0, DummyTable.columns.count)&#xD;&#xA;        Select DummyTable(i)(j).toString&#xD;&#xA;            Case &quot;edge_player&quot;&#xD;&#xA;                out_CornersTable(i)(j) = &quot;10&quot;&#xD;&#xA;            Case &quot;corner_enemy&quot;&#xD;&#xA;                out_CornersTable(i)(j) = &quot;40&quot;&#xD;&#xA;            Case &quot;corner_player&quot;&#xD;&#xA;                out_CornersTable(i)(j) = &quot;30&quot;&#xD;&#xA;                ResultList.add(String.format(&quot;{0}_{1}&quot;,{CStr(i), CStr(j)}))&#xD;&#xA;            Case &quot;corner_common&quot;&#xD;&#xA;                out_CornersTable(i)(j) = &quot;100&quot;&#xD;&#xA;        End Select&#xD;&#xA;    Next&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;out_CornerCoordinates = String.join(&quot;,&quot;c, ResultList)" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="378.4,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ColorsTable">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="ColorTable" />
+              </InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CornersTable">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="ColorTable" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_playerColor">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_MyColor" />
+              </InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="in_PlayersArray">
+                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;blue&quot;, &quot;red&quot;, &quot;green&quot;, &quot;orange&quot;,&quot;10&quot;,&quot;20&quot;}" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CornerCoordinates">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCorners" />
+              </OutArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:WriteRange AddHeaders="False" DataTable="[ColorTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="378.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[in_Config(&quot;CornersPath&quot;).ToString]" />
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="378.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,206.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetAvailableCorners workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Workflows\Brain\GetAvailableCorners.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_colorsDT">
+                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="ColorTable" />
+                    </InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_colorPlayer">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_MyColor" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_strCorners">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCorners" />
+                    </OutArgument>
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_countBlueCorners" />
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_countGreenCorners" />
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_countRedCorners" />
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_countOrangeCorners" />
+                    <InArgument x:TypeArguments="x:String" x:Key="in_CornersPath">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;CornersPath&quot;).ToString" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Takes available corners and left pieces and result lists of all possibilities" DisplayName="Invoke Python_GetValidPositions workflow" sap:VirtualizedContainerService.HintSize="378.4,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" LogEntry="OnlyInvocation" LogExit="OnlySuccessfulReturn" UnSafe="False" WorkflowFileName="Workflows\Brain\Python_GetValidPositions.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PythonPath">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PythonPath&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PathToBlokeeScript">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PathToBlokeeScript&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_RemainingPiecesList">
+                <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="io_AvailablePieces" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PiecesFilePath">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PiecesPath&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_CornerCoordinates">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCorners" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_CornersFilePath">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;CornersPath&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ConfigPiecesDT">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_PiecesDT" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PythonScriptResultFolder">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ResultsPath&quot;).ToString" />
+              </InArgument>
+              <OutArgument x:TypeArguments="sd:DataRow" x:Key="out_BestRow">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="BestRow" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_RoundNumber">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_RoundNumber" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:Comment sap:VirtualizedContainerService.HintSize="378.4,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// Choose one piece, position and XY" />
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="378.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,161.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Sequence testing" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="472,287.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                              <ui:AssignOperation sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[pieceName]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">4</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[piecePosition]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[zoneX]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[zoneY]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog pieceName" sap:VirtualizedContainerService.HintSize="333.6,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Title="pieceName">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:String">[pieceName]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                  <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog piecePosition" sap:VirtualizedContainerService.HintSize="333.6,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Title="piecePosition">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:String">[piecePosition]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                  <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog zoneX" sap:VirtualizedContainerService.HintSize="333.6,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_7" IsPassword="False" Title="zoneX">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:Int32">[zoneX]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                  <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog zoneY" sap:VirtualizedContainerService.HintSize="333.6,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Title="zoneY">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:Int32">[zoneY]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                </Sequence>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SelectPiece workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\SelectPiece.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_pieceName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Cstr(BestRow(&quot;piece&quot;))" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfigurePiece workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\ConfigurePiece.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_piecePosition">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Cstr(BestRow(&quot;rotation&quot;))" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CalculatePinPosition workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\Brain\CalculatePinPosition.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_pieceName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(BestRow(&quot;piece&quot;))" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_piecePosition">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(BestRow(&quot;rotation&quot;))" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_X">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(BestRow(&quot;y&quot;))" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_Y">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(BestRow(&quot;x&quot;))" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="out_X">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="pinX" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="out_Y">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="pinY" />
+              </OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocationDT">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_PinLocationsDT" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ClickOnGivenPin workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\ClickOnGivenPin.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetX">[pinX]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetY">[pinY]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmPiece workflow" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\ConfirmPiece.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <RemoveFromCollection x:TypeArguments="x:String" Collection="[io_AvailablePieces]" DisplayName="Remove Piece From Collection" sap:VirtualizedContainerService.HintSize="378.4,22.4" sap2010:WorkflowViewState.IdRef="RemoveFromCollection`1_3" Item="[CStr(BestRow(&quot;piece&quot;))]" />
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Remaining pieces: &quot;+String.join(&quot;, &quot;,io_AvailablePieces)]" />
+  </Sequence>
+</Activity>

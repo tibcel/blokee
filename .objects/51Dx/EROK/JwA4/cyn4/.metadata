@@ -1,0 +1,16 @@
+﻿{
+  "Id": "cyn4cKq3ckeKGSm1SWrdQQ",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/cyn4cKq3ckeKGSm1SWrdQQ",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/JwA4bhNAGkqkLA92NGP3QA",
+  "Name": "G-ThirdAdd",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T17:30:39.4029426Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T17:31:45.544693Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

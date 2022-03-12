@@ -1,0 +1,15 @@
+﻿{
+  "Id": "oyMZuY4JHEeT0GGbN9liUQ",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/oyMZuY4JHEeT0GGbN9liUQ",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "Pass...",
+  "Description": "this button shows up only when it's your turn",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:58:00.6217396Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T13:58:00.6217396Z"
+}

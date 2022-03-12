@@ -1,0 +1,13 @@
+﻿{
+  "Id": "Ijnwv0ZglkqxXbtlG4X4Xw",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/Ijnwv0ZglkqxXbtlG4X4Xw",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/sJf5u3oWqUGRE802DIajlw",
+  "Name": "W",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T22:14:37.9056031Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T22:14:37.9056031Z"
+}

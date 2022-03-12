@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-16"?>
+<TargetAnchorable ContentHash="vwnNEKd5fkeNy5CEKfnTzw" DesignTimeRectangle="245, 349, 68, 70" FriendlyName="'chrome.exe Blokee'" Reference="zhXSqB31oEaI8ofpHgJ5nA/etS0FqoQsE2GHO5kTGYPew" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Blokee - Inspired by Blokus - Online Board Game - Google Chrome' /&gt;" SearchSteps="Image" TargetType="ImageBased" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TargetAnchorable.Anchors>
+    <scg:List x:TypeArguments="ITarget" Capacity="1">
+      <Target DesignTimeRectangle="289, 576, 59, 26" FriendlyName="'chrome.exe Blokee'" SearchSteps="Image" TargetType="ImageBased">
+        <imageRef attrName="ImageBase64" xmlns="">1E0INdssVZkC-qNKHdpqMPw</imageRef>
+      </Target>
+    </scg:List>
+  </TargetAnchorable.Anchors>
+  <imageRef attrName="ImageBase64" xmlns="">0O8UUNWKflE2YROW6hxpQuQ</imageRef>
+  <imageRef attrName="InformativeScreenshot" originalValue="9d33d784c57c0d718e72965db452361a.png" xmlns="">0tVYLSeX4qEOzMMa3_Hij2g</imageRef>
+</TargetAnchorable>

@@ -1,0 +1,16 @@
+﻿{
+  "Id": "vLn7CEzCDkW6NWZtT6c6-g",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/vLn7CEzCDkW6NWZtT6c6-g",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/JwA4bhNAGkqkLA92NGP3QA",
+  "Name": "G-SecondAdd",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T17:27:05.8964392Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T17:27:48.8464931Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

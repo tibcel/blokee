@@ -1,0 +1,15 @@
+﻿{
+  "Id": "qLTNnh0aUUmBygfRuMfBlw",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/qLTNnh0aUUmBygfRuMfBlw",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "TurnLeft",
+  "Description": "all players",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:42:57.725516Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T13:42:57.725516Z"
+}

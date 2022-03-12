@@ -1,0 +1,18 @@
+﻿{
+  "Id": "MSkoUCQsQ0W0QVKk83fqaA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/MSkoUCQsQ0W0QVKk83fqaA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "FlipButton",
+  "Description": "all players",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:45:13.1282254Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T18:05:20.8038439Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

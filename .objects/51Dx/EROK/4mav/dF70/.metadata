@@ -1,0 +1,15 @@
+﻿{
+  "Id": "dF70VG_jtkuCvUiA6sl5Bg",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/dF70VG_jtkuCvUiA6sl5Bg",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "ConfirmChoice",
+  "Description": "all players",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:50:02.9292259Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T13:50:02.9292259Z"
+}

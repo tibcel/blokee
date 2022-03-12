@@ -1,0 +1,15 @@
+﻿{
+  "Id": "LBV0cn7l7Eye7_lT_MMsyw",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/LBV0cn7l7Eye7_lT_MMsyw",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/EROKb0VVq0y3MXKf03YIDA",
+  "Name": "Orange",
+  "Type": "Screen",
+  "Created": "2022-02-27T14:05:36.2793838Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T22:13:24.5845697Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

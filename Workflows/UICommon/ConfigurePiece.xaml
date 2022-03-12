@@ -1,0 +1,198 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ConfigurePiece" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_piecePosition" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1359.2,1616</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AddSelectedPiece_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ConfigurePiece" sap:VirtualizedContainerService.HintSize="969.6,1551.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="noOfTimes" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="AllPlayers" sap:VirtualizedContainerService.HintSize="928,1458.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="631af69a-c152-4884-9a23-52e680bd82d0" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="894.4,1241.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="s:String[]" Name="listActions" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[in_piecePosition.StartsWith(&quot;m&quot;)]" DisplayName="If needs flipping" sap:VirtualizedContainerService.HintSize="852.8,240.8" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="Sequence mirror" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'FlipButton'" sap:VirtualizedContainerService.HintSize="333.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://blokee.mattle.online/room/ai8gPCw2zGLs7h4t8" ContentHash="4a2g52L7-0qvOaZqYOROoA" DesignTimeRectangle="66, 325, 61, 57" FriendlyName="'chrome.exe Blokee'" Guid="72985f42-d22a-4458-98ff-1159e2252e52" ImageBase64="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" InformativeScreenshot="c7a47dd7245bbe2c978dee7091a06d14.png" Reference="zhXSqB31oEaI8ofpHgJ5nA/MSkoUCQsQ0W0QVKk83fqaA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;" SearchSteps="Image" TargetType="ImageBased" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Click flip&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <If Condition="[in_piecePosition.Contains(&quot;l3&quot;)]" DisplayName="If it's easier to go right" sap:VirtualizedContainerService.HintSize="852.8,867.2" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <uix:NClick ClickType="Single" DisplayName="Click 'TurnRight'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="631af69a-c152-4884-9a23-52e680bd82d0">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://blokee.mattle.online/room/ai8gPCw2zGLs7h4t8" ContentHash="Mgwh8k2PcEeTRGuBbut7Cw" DesignTimeRectangle="128, 321, 65, 65" FriendlyName="'TurnRight'" Guid="887b1846-8706-413e-bee7-15af9148ed04" ImageBase64="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" InformativeScreenshot="c3442d4a8e2ba6096702df0213b4e7af.png" Reference="zhXSqB31oEaI8ofpHgJ5nA/kJEWoYWg8UCopXJPaoKwuA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;" SearchSteps="Image" TargetType="ImageBased" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="475.2,706.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign how many lefts" sap:VirtualizedContainerService.HintSize="433.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[noOfTimes]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[CInt(System.Text.RegularExpressions.Regex.Replace(in_piecePosition,"\D",""))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each number of actions" sap:VirtualizedContainerService.HintSize="433.6,511.2" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Enumerable.Range(0,noOfTimes)]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:Int32">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Int32" Name="item" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Sequence left" sap:VirtualizedContainerService.HintSize="375.2,384.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'TurnLeft'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_26" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://blokee.mattle.online/room/ai8gPCw2zGLs7h4t8" ContentHash="ClfAckvakke8_KE19FlC6Q" DesignTimeRectangle="193, 322, 63, 61" FriendlyName="'chrome.exe Blokee'" Guid="20d1ea79-df67-4fbb-938c-dfc3762d7ff4" ImageBase64="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" InformativeScreenshot="a18ae86efc2547f2803331c4a001e5f9.png" Reference="zhXSqB31oEaI8ofpHgJ5nA/qLTNnh0aUUmBygfRuMfBlw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;" SearchSteps="Image" TargetType="ImageBased" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Click left&quot;]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" ContentHash="1nX7F2C9HEqA3I4Q0IE8uA" IconBase64="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" InformativeScreenshot="c2386a61f9eb124146672b38162b9268.png" Reference="zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ" Selector="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

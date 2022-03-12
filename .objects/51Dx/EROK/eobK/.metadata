@@ -1,0 +1,15 @@
+﻿{
+  "Id": "eobKCJR0NUav7SJD14cjBQ",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/eobKCJR0NUav7SJD14cjBQ",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/EROKb0VVq0y3MXKf03YIDA",
+  "Name": "Red",
+  "Type": "Screen",
+  "Created": "2022-02-27T19:10:07.1978522Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T19:10:17.5330175Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

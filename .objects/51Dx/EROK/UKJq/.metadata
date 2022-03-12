@@ -1,0 +1,15 @@
+﻿{
+  "Id": "UKJqoYTDB0K4s8jzvXmxLg",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/UKJqoYTDB0K4s8jzvXmxLg",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/EROKb0VVq0y3MXKf03YIDA",
+  "Name": "Blue",
+  "Type": "Screen",
+  "Created": "2022-02-27T14:23:57.2011938Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T21:26:40.8700336Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

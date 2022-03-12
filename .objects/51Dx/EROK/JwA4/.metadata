@@ -1,0 +1,15 @@
+﻿{
+  "Id": "JwA4bhNAGkqkLA92NGP3QA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/JwA4bhNAGkqkLA92NGP3QA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/EROKb0VVq0y3MXKf03YIDA",
+  "Name": "Green",
+  "Type": "Screen",
+  "Created": "2022-02-27T15:38:23.286196Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T21:57:27.4683362Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

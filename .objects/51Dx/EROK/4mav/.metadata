@@ -1,0 +1,18 @@
+﻿{
+  "Id": "4mavfQchJkqUVesYSPywwQ",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/EROKb0VVq0y3MXKf03YIDA",
+  "Name": "AllPlayers",
+  "Description": "common elements",
+  "Type": "Screen",
+  "TaxonomyType": "Screen",
+  "Created": "2022-02-27T13:14:20.0643959Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-28T22:13:04.8108795Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

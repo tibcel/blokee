@@ -1,0 +1,15 @@
+﻿{
+  "Id": "kJEWoYWg8UCopXJPaoKwuA",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/kJEWoYWg8UCopXJPaoKwuA",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "TurnRight",
+  "Description": "all players",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-02-27T13:44:12.8807709Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.6.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-27T13:44:12.8807709Z"
+}
