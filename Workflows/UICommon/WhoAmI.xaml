@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1235.2,2109.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799.2,2109.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>WhoAmI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -82,7 +82,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="AllPlayers" sap:VirtualizedContainerService.HintSize="635.2,1952" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="fe325dd7-1b86-4f8d-935a-362289ca19a8" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="AllPlayers" sap:VirtualizedContainerService.HintSize="635.2,1952" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="fe325dd7-1b86-4f8d-935a-362289ca19a8" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

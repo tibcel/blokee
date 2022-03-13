@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1127.2,1140.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799.2,1140.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence3_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -162,15 +162,9 @@
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ClickOnGivenPin workflow" sap:VirtualizedContainerService.HintSize="343.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\UICommon\ClickOnGivenPin.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">
-                      <mva:VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="in_Board" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetX">
-                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="X" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetY">
-                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Y" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetX">[X]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetY">[Y]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmPiece workflow" sap:VirtualizedContainerService.HintSize="343.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\ConfirmPiece.xaml">

@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>776,1504.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>791.2,1597.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -86,23 +86,24 @@
       <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Python</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="524.8,1440" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="524.8,1532.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap2010:Annotation.AnnotationText="We have 21 pieces to add on the board" Condition="[in_TransactionNumber &lt;= 21]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="483.2,1111.2" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="We have 21 pieces to add on the board" Condition="True" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="483.2,1204" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="410.4,891.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="410.4,984" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="isMyTurn" />
             <Variable x:TypeArguments="x:String" Name="stepNo" />
@@ -113,9 +114,57 @@
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InterruptibleDoWhile Condition="[not isMyTurn]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="368.8,274.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="368.8,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="917.6,420" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InterruptibleDoWhile Condition="[not isMyTurn]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="876,327.2" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                  <ui:InterruptibleDoWhile.Body>
+                    <Parallel sap:VirtualizedContainerService.HintSize="840.8,160" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                      <ui:ImageFound DisplayName="Image Exists 'chrome.exe Blokee'" Found="[isMyTurn]" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+                        <ui:ImageFound.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.75" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAAgCAYAAAB90wSbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARFSURBVGhD7ZhXTytBDIXvz6d3QhO9RfTeew29d/JbjD5HXk02SxIhmNyHeThC7I49M8fHZfMvm81KgB8Esj0ikO0RgWyPCGR7RCDbIwLZHhHI9oiSZL+8vMji4qI0NTVJbW2tVFVVKWpqaqS9vV1mZ2fl4eEh0TYgH0XJ/vz8lKurKyXVSE5CQ0ODkv7+/p7oJyCHssmuq6uTiYmJ6PnT05Nsbm5KKpWS6upqVf3IyIi8vr4W+AnI4Udku6DMzM3NaVlpbm6WnZ2dgjUBOZRNdn19vczPzyeuuby8lLa2Ni0ny8vLBWsCcihK9sfHh2QyGW2O3xHJmuPjY2lsbFSsrq7mvScYNFAC1draqhlA2SF4fX19sr+/rz5cGxfYkz1HR0cyNTWlPihZ2N7f3yfaAHwigqWlJenu7lYbRHN4eJi43gdKkn1ychIRub6+nvceIm5vb6W3t1cJpH6fn59H76nf2GCb1FhBUq3H793dnTZdShO+43YtLS1ycHAQ2QCCQh/p7OzUoMZtCDABc218oiTZqBZVo26rxzynvKBWnnMRCHWVz8UXFhYiJbOO9Y+Pjzq1oFSIpBeMj49H6n57e5Pt7W3dE7/Youbp6Wk9y9bWlpLGfisrK2pDcC4uLqSrqyuy4T1B3NvbU8EQAAI7OjpasSZelGwuzuU4pKkjDiPDbYyQieogDLJ7eno0OPbeDWK8PJEppD1+yRSCYu8g9fr6WkmlR5iyn5+fZWZmJiKZILtjKJPT5OSk7kW2WGB9oyyyUR8XsdS0S/X39yvJcaWgXlTFWtI9XifdIMYVSp2ltrIHhEIcgYFQ14cL9hsbG9P9IDSdTquiqen4TLKpBIqSDYl8PZrK3Hr8HbicTTAEZ2BgoIAoVLe7u6tBdMkGqBCy2NOyxwJM4FBw/IvVgkd5cW0Az4aGhuTs7CzPphL4E7JNnSh3eHi4QPmksdt4XbIBwWAviKVkQJiRb2dB7a4N+6JkpiEyjh7hNkn24S6VKiGgImTbGspEEtlxGJE0SXxCIoQWKy2AfWm2ZASEc6bT09PEtT7w62QD0hwysOvo6MhrjgDybm5udEKglFA2ylEctZlpwvyWcx7usLGxoQEisPHvAJ/4E7KxQ61cEDCHo2TeUV9pmJQH/AJI5z2TCEFiJGRMtAYHGCWp80w+ZsNkgrpZS2MkizijTSIEkFpN38CG0sIcbuc0W8oU+zLb89zEwIcTfilnJgbe4RM+OOfa2lrkrxT+hGwOxMEHBwfV1urmd+CyXAjyIDFpjQtIM4XSUPnNptQ+ZBATC0GzMzKbcy/e49M+2uJTGMIwsRAg48TKGRnHu1IoSjabMtpxkJ/8omcpbB8UXIq//M9nNAqhhODf1AN5ZAWzttsYuRiqhliC4u5j2UJw8cVabLDlf54zk0Owa/dfKTvgdxHI9ohAtkcEsj0ikO0RgWyPCGR7Q1a+AN1Wf97Vy7grAAAAAElFTkSuQmCC" />
+                        </ui:ImageFound.Image>
+                        <ui:ImageFound.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="46f551e7-b7ef-4252-87aa-6c0675571af5" Selector="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;" TimeoutMS="2000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:ImageFound.Target>
+                      </ui:ImageFound>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Check1Min workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\UICommon\Check1Min.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_timeout">
+                            <Literal x:TypeArguments="x:Int32" Value="1" />
+                          </InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Parallel>
+                  </ui:InterruptibleDoWhile.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InterruptibleDoWhile>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:InterruptibleDoWhile Condition="[not isMyTurn]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="368.8,274.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4">
             <ui:InterruptibleDoWhile.Body>
-              <ui:ImageFound DisplayName="Image Exists 'chrome.exe Blokee'" Found="[isMyTurn]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+              <ui:ImageFound DisplayName="Image Exists 'chrome.exe Blokee'" Found="[isMyTurn]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ImageFound_2">
                 <ui:ImageFound.Image>
                   <ui:ImageTarget Image="{x:Null}" Accuracy="0.75" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAAgCAYAAAB90wSbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARFSURBVGhD7ZhXTytBDIXvz6d3QhO9RfTeew29d/JbjD5HXk02SxIhmNyHeThC7I49M8fHZfMvm81KgB8Esj0ikO0RgWyPCGR7RCDbIwLZHhHI9oiSZL+8vMji4qI0NTVJbW2tVFVVKWpqaqS9vV1mZ2fl4eEh0TYgH0XJ/vz8lKurKyXVSE5CQ0ODkv7+/p7oJyCHssmuq6uTiYmJ6PnT05Nsbm5KKpWS6upqVf3IyIi8vr4W+AnI4Udku6DMzM3NaVlpbm6WnZ2dgjUBOZRNdn19vczPzyeuuby8lLa2Ni0ny8vLBWsCcihK9sfHh2QyGW2O3xHJmuPjY2lsbFSsrq7mvScYNFAC1draqhlA2SF4fX19sr+/rz5cGxfYkz1HR0cyNTWlPihZ2N7f3yfaAHwigqWlJenu7lYbRHN4eJi43gdKkn1ychIRub6+nvceIm5vb6W3t1cJpH6fn59H76nf2GCb1FhBUq3H793dnTZdShO+43YtLS1ycHAQ2QCCQh/p7OzUoMZtCDABc218oiTZqBZVo26rxzynvKBWnnMRCHWVz8UXFhYiJbOO9Y+Pjzq1oFSIpBeMj49H6n57e5Pt7W3dE7/Youbp6Wk9y9bWlpLGfisrK2pDcC4uLqSrqyuy4T1B3NvbU8EQAAI7OjpasSZelGwuzuU4pKkjDiPDbYyQieogDLJ7eno0OPbeDWK8PJEppD1+yRSCYu8g9fr6WkmlR5iyn5+fZWZmJiKZILtjKJPT5OSk7kW2WGB9oyyyUR8XsdS0S/X39yvJcaWgXlTFWtI9XifdIMYVSp2ltrIHhEIcgYFQ14cL9hsbG9P9IDSdTquiqen4TLKpBIqSDYl8PZrK3Hr8HbicTTAEZ2BgoIAoVLe7u6tBdMkGqBCy2NOyxwJM4FBw/IvVgkd5cW0Az4aGhuTs7CzPphL4E7JNnSh3eHi4QPmksdt4XbIBwWAviKVkQJiRb2dB7a4N+6JkpiEyjh7hNkn24S6VKiGgImTbGspEEtlxGJE0SXxCIoQWKy2AfWm2ZASEc6bT09PEtT7w62QD0hwysOvo6MhrjgDybm5udEKglFA2ylEctZlpwvyWcx7usLGxoQEisPHvAJ/4E7KxQ61cEDCHo2TeUV9pmJQH/AJI5z2TCEFiJGRMtAYHGCWp80w+ZsNkgrpZS2MkizijTSIEkFpN38CG0sIcbuc0W8oU+zLb89zEwIcTfilnJgbe4RM+OOfa2lrkrxT+hGwOxMEHBwfV1urmd+CyXAjyIDFpjQtIM4XSUPnNptQ+ZBATC0GzMzKbcy/e49M+2uJTGMIwsRAg48TKGRnHu1IoSjabMtpxkJ/8omcpbB8UXIq//M9nNAqhhODf1AN5ZAWzttsYuRiqhliC4u5j2UJw8cVabLDlf54zk0Owa/dfKTvgdxHI9ohAtkcEsj0ikO0RgWyPCGR7Q1a+AN1Wf97Vy7grAAAAAElFTkSuQmCC" />
                 </ui:ImageFound.Image>

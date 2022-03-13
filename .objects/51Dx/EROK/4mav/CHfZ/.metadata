@@ -1,0 +1,14 @@
+﻿{
+  "Id": "CHfZwTaHdUe1Nw8WYotUVQ",
+  "Reference": "zhXSqB31oEaI8ofpHgJ5nA/CHfZwTaHdUe1Nw8WYotUVQ",
+  "ParentRef": "zhXSqB31oEaI8ofpHgJ5nA/4mavfQchJkqUVesYSPywwQ",
+  "Name": "1Min",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2022-03-13T16:44:36.5985447Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=21.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=21.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-03-13T16:44:36.5985447Z"
+}

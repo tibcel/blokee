@@ -92,13 +92,14 @@ def get_valid_positions(table, piece, starting_position, score, piece_name, rota
                 player_corners_covered = np.count_nonzero(resulted_table == 31)
 
                 #colturile inamicilor sunt 40 50 60 luate in mod arbitrar
-                enemy_corners_covered = np.count_nonzero(resulted_table==41) + np.count_nonzero(resulted_table==51) + np.count_nonzero(resulted_table==61)
+                enemy_corners_covered = np.count_nonzero(resulted_table==41) # + np.count_nonzero(resulted_table==51) + np.count_nonzero(resulted_table==61)
+
 
                 #pozitia trebuie renormalizata deoarece prima oara e relativa mica (cea sliced)
                 position = normalize_position([i,j], starting_position)
 
                 #adaugam [x, y, player_corners_covered, enemy_corners_covered] in piece_metrics care este o lista de liste
-                piece_metrics.append([piece_name, rotation, position[0], position[1], player_corners_covered, enemy_corners_covered, (int(score) + enemy_corners_covered*7 - player_corners_covered*3)])
+                piece_metrics.append([piece_name, rotation, position[0], position[1], player_corners_covered, enemy_corners_covered, (int(score) + enemy_corners_covered*7)])
                                 
     return piece_metrics
 

@@ -21,7 +21,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1639.2,1334.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799.2,1404</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence3_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -106,26 +106,26 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Configure piece, select pin and click Confirm button" DisplayName="Green" sap:VirtualizedContainerService.HintSize="613.6,1269.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Configure piece, select pin and click Confirm button" DisplayName="Green" sap:VirtualizedContainerService.HintSize="613.6,1339.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="AllPlayers" sap:VirtualizedContainerService.HintSize="572,1145.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="7e2f1d7f-01d0-4247-850f-2736f9c94ff9" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="AllPlayers" sap:VirtualizedContainerService.HintSize="572,1215.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="7e2f1d7f-01d0-4247-850f-2736f9c94ff9" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="538.4,928.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="538.4,998.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[in_roundNumber]" sap:VirtualizedContainerService.HintSize="496.8,834.4" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[in_roundNumber]" sap:VirtualizedContainerService.HintSize="496.8,904" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Sequence x:Key="1" DisplayName="First piece" sap:VirtualizedContainerService.HintSize="384.8,668.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Int32" Name="X" />
@@ -172,15 +172,9 @@
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ClickOnGivenPin workflow" sap:VirtualizedContainerService.HintSize="343.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\UICommon\ClickOnGivenPin.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">
-                      <mva:VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="in_Board" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetX">
-                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="X" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetY">
-                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Y" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[in_Board]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetX">[X]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_OffsetY">[Y]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmPiece workflow" sap:VirtualizedContainerService.HintSize="343.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\ConfirmPiece.xaml">

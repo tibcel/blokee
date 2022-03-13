@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AutomationTemplate" this:AutomationTemplate.in_PythonPath="C:\Users\bibi\AppData\Local\Programs\Python\Python38" this:AutomationTemplate.in_PathToBlokeeScript="C:\Users\bibi\OneDrive\Documents\Blokee\Scripts\blokee.py" this:AutomationTemplate.in_RemainingPiecesList="[new list(of string)]" this:AutomationTemplate.in_PiecesFilePath="C:/Users/bibi/OneDrive/Documents/Blokee/Data/Pieces.xlsx" this:AutomationTemplate.in_CornerCoordinates="7_10,9_10" this:AutomationTemplate.in_CornersFilePath="C:/Users/bibi/OneDrive/Documents/Blokee/Data/corners.xlsx" this:AutomationTemplate.in_PythonScriptResultFolder="C:/Users/bibi/OneDrive/Documents/Blokee/Data/Temp" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AutomationTemplate" this:AutomationTemplate.in_PythonPath="C:\Users\bibi\AppData\Local\Programs\Python\Python38" this:AutomationTemplate.in_PathToBlokeeScript="C:\Users\bibi\OneDrive\Desktop\VERSIUNE NOUA VECHE\Blokee\Scripts\blokee.py" this:AutomationTemplate.in_RemainingPiecesList="[new list(of string)]" this:AutomationTemplate.in_PiecesFilePath="C:\Users\bibi\OneDrive\Desktop\VERSIUNE NOUA VECHE\Blokee\Data\Pieces.xlsx" this:AutomationTemplate.in_CornerCoordinates="4_8,4_12" this:AutomationTemplate.in_CornersFilePath="C:\Users\bibi\OneDrive\Desktop\VERSIUNE NOUA VECHE\Blokee\Data\corners.xlsx" this:AutomationTemplate.in_PythonScriptResultFolder="C:\Users\bibi\OneDrive\Desktop\VERSIUNE NOUA VECHE\Blokee\Data\Temp" this:AutomationTemplate.in_PlayerColor="blue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_PythonPath" Type="InArgument(x:String)" />
     <x:Property Name="in_PathToBlokeeScript" Type="InArgument(x:String)" />
@@ -10,8 +10,10 @@
     <x:Property Name="in_PythonScriptResultFolder" Type="InArgument(x:String)" />
     <x:Property Name="out_BestRow" Type="OutArgument(sd:DataRow)" />
     <x:Property Name="in_RoundNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_GoToCornerTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_PlayerColor" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>939.2,3416</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>786.4,3463.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -106,10 +108,9 @@
       <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="python version 38 pe 64 de biti, in_PathToBlokeeScript tre' sa fie absolut" DisplayName="Python_GetValidPositions" sap:VirtualizedContainerService.HintSize="666.4,3335.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="python version 38 pe 64 de biti, in_PathToBlokeeScript tre' sa fie absolut" DisplayName="Python_GetValidPositions" sap:VirtualizedContainerService.HintSize="666.4,3398.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Python_GetValidPositions" Name="ComponentName" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" Default="[new dictionary(of string, system.data.DataTable)]" Name="ResultsDictionary" />
@@ -122,16 +123,29 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="624.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting &quot;+ComponentName]" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder in_PythonScriptResultFolder" sap:VirtualizedContainerService.HintSize="624.8,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_PythonScriptResultFolder]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="624.8,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="624.8,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_11">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,161.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="417.6,679.2" sap2010:WorkflowViewState.IdRef="Sequence_33">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="DEBUG SEQUENCE" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder in_PythonScriptResultFolder" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_PythonScriptResultFolder]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Framework\InitAllSettings.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_PieceFile">C:/Users/bibi/OneDrive/Documents/Blokee/Data/Pieces.xlsx</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_PiecesDT" />
+              <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigDTSheets">[{"Pieces","PinLocations","GoToCorner"}]</InArgument>
+              <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_AvailablePieces" />
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_PinLocationsDT" />
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_GoToCornerTable">[in_GoToCornerTable]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Sequence DisplayName="DEBUG SEQUENCE" sap:VirtualizedContainerService.HintSize="333.6,68.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dummyDT" />
             </Sequence.Variables>
@@ -166,13 +180,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <p:PythonScope DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="624.8,1398.4" sap2010:WorkflowViewState.IdRef="PythonScope_3" Path="[in_PythonPath]" TargetPlatform="x64" Version="Python_38">
+    <p:PythonScope DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="624.8,52.8" sap2010:WorkflowViewState.IdRef="PythonScope_3" Path="[in_PythonPath]" TargetPlatform="x64" Version="Python_38">
       <p:PythonScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="566.4,1361.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="566.4,1393.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="p:PythonObject" Name="FirstPythonResult" />
             </Sequence.Variables>
@@ -182,12 +196,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="524.8,60" sap2010:WorkflowViewState.IdRef="LoadScript_3" Result="[FirstPythonResult]" ScriptFile="[in_PathToBlokeeScript]" />
-            <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each" sap:VirtualizedContainerService.HintSize="524.8,1168.8" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[in_RemainingPiecesList]">
+            <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each" sap:VirtualizedContainerService.HintSize="524.8,1184.8" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[in_RemainingPiecesList]">
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="PieceName" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="parallel loop" sap:VirtualizedContainerService.HintSize="475.2,1020" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence DisplayName="parallel loop" sap:VirtualizedContainerService.HintSize="475.2,1036" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Int32" Name="NumberOfRotations" />
                     <Variable x:TypeArguments="x:Boolean" Name="IsMirror" />
@@ -250,7 +264,7 @@
                   <p:GetObject x:TypeArguments="x:Object" Result="{x:Null}" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="GetObject`1_3" PythonObject="[SecondPythonResult]" />
                   <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[ResultsDT]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[PythonScriptResultPath]" sap:VirtualizedContainerService.HintSize="433.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
                   <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete PythonScriptResultPath" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[PythonScriptResultPath]" />
-                  <Assign sap2010:Annotation.AnnotationText="Adding that table to a dictionary. This will be later transformed winto a datatable." DisplayName="Assign ResultsDictionary(PieceName)" sap:VirtualizedContainerService.HintSize="433.6,104" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign sap2010:Annotation.AnnotationText="Adding that table to a dictionary. This will be later transformed winto a datatable." DisplayName="Assign ResultsDictionary(PieceName)" sap:VirtualizedContainerService.HintSize="433.6,120" sap2010:WorkflowViewState.IdRef="Assign_2">
                     <Assign.To>
                       <OutArgument x:TypeArguments="sd:DataTable">[ResultsDictionary(PieceName)]</OutArgument>
                     </Assign.To>
@@ -271,7 +285,7 @@
       </p:PythonScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -305,15 +319,44 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_FinalResultTable.columns.add(&quot;final_score_double&quot;, GetType(Double))&#xD;&#xA;Dim DummyTable As system.data.datatable = io_FinalResultTable.Copy&#xD;&#xA;Dim RowIndex As Int32 = 0&#xD;&#xA;&#xD;&#xA;For Each row As system.data.datarow  In DummyTable.rows&#xD;&#xA;&#x9;RowIndex = DummyTable.rows.indexof(row)&#xD;&#xA;&#x9;io_FinalResultTable(RowIndex)(&quot;final_score_double&quot;) = CDbl(row(&quot;final_score&quot;))&#xD;&#xA;Next" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="624.8,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_FinalResultTable.columns.add(&quot;final_score_double&quot;, GetType(Double))&#xA;Dim DummyTable As system.data.datatable = io_FinalResultTable.Copy&#xA;Dim RowIndex As Int32 = 0&#xA;&#xA;For Each row As system.data.datarow  In DummyTable.rows&#xA;&#x9;RowIndex = DummyTable.rows.indexof(row)&#xA;&#x9;io_FinalResultTable(RowIndex)(&quot;final_score_double&quot;) = CDbl(row(&quot;final_score&quot;))&#xA;Next" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="624.8,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_FinalResultTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="FinalResultTable" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_FinalResultTable">[FinalResultTable]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="final_score_double" DataTable="[FinalResultTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="624.8,241.6" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[FinalResultTable]" SortOrder="Descending" />
-    <ui:WriteRange AddHeaders="True" DataTable="[FinalResultTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="624.8,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[String.format(&quot;final_{0}.xlsx&quot;,{cstr(in_RoundNumber)})]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="624.8,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,208.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteRange AddHeaders="True" DataTable="[FinalResultTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[String.format(&quot;final_{0}.xlsx&quot;,{cstr(in_RoundNumber)})]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <If Condition="[FinalResultTable.rows.count = 0]" DisplayName="If FinalResultTable.rows.count = 0" sap:VirtualizedContainerService.HintSize="624.8,248.8" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Throw DisplayName="Throw BRE end of the game" Exception="[new BusinessRuleException(&quot;No more valid positions found. End of the game!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
     <Assign DisplayName="Assign out_BestRow" sap:VirtualizedContainerService.HintSize="624.8,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataRow">[out_BestRow]</OutArgument>
@@ -322,6 +365,85 @@
         <InArgument x:TypeArguments="sd:DataRow">[FinalResultTable(0)]</InArgument>
       </Assign.Value>
     </Assign>
+    <If sap2010:Annotation.AnnotationText="" Condition="[cint(out_BestRow(&quot;enemy_corners_covered&quot;)) = 0]" DisplayName="If lake" sap:VirtualizedContainerService.HintSize="624.8,1264" sap2010:WorkflowViewState.IdRef="If_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="472,1044" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Default="[new system.data.datatable]" Name="DummyTable" />
+            <Variable x:TypeArguments="x:Int32" Name="GoToX" />
+            <Variable x:TypeArguments="x:Int32" Name="GoToY" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Went on GoTo&quot;]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[GoToX]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">[cint(in_GoToCornerTable.AsEnumerable.where(function(x) x("player_color").toString=in_PlayerColor)(0)("go_to_x"))]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[GoToY]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">[cint(in_GoToCornerTable.AsEnumerable.where(function(x) x("player_color").toString=in_PlayerColor)(0)("go_to_y"))]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <Assign DisplayName="Assign DummyTable" sap:VirtualizedContainerService.HintSize="430.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[DummyTable]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[FinalResultTable.AsEnumerable.Where(function(x) x("final_score").toString.equals(out_bestrow("final_score").toString)).CopyToDataTable]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_FinalResultTable.AsEnumerable.tolist().foreach(Sub (r) r.setField(Of Double)(&quot;final_score_double&quot;,CDbl(r(&quot;final_score_double&quot;))-math.sqrt((CInt(r(&quot;x&quot;))-in_GoToX)*(CInt(r(&quot;x&quot;))-in_GoToX) + (CInt(r(&quot;y&quot;))-in_GoToy)*(CInt(r(&quot;y&quot;))-in_GoToy))))" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="430.4,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_FinalResultTable">[FinalResultTable]</InOutArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_GoToX">[GoToX]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_GoToY">[GoToY]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="final_score_double" DataTable="[FinalResultTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="430.4,241.6" sap2010:WorkflowViewState.IdRef="SortDataTable_3" Order="Decending" OutputDataTable="[FinalResultTable]" SortOrder="Descending" />
+          <Assign DisplayName="Assign out_BestRow" sap:VirtualizedContainerService.HintSize="430.4,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataRow">[out_BestRow]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataRow">[FinalResultTable(0)]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="624.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BestRowSelected: &quot;+String.join(&quot;, &quot;, out_BestRow.ItemArray)]" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="624.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ending &quot;+ComponentName]" />
   </Sequence>
