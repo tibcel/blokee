@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>799.2,932.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>786.4,932.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -239,39 +239,17 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">
-                            <mva:VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="Board" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="in_RoundNumber">
-                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                          </InArgument>
-                          <InOutArgument x:TypeArguments="x:String" x:Key="io_MyColor">
-                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="MyColor" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_AvailablePieces">
-                            <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="AvailablePieces" />
-                          </InOutArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PlayTable">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="ZerosTable" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:Int32, scg:List(sd1:Rectangle))" x:Key="in_RectangleDictionary">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:Int32, scg:List(sd1:Rectangle))" ExpressionText="RectangleDictionary" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PiecesDT">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="PiecesDT" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocationsDT">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="PinLocationsDT" />
-                          </InArgument>
-                          <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_clickedPopup">
-                            <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="clickedPopup" />
-                          </InOutArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_GoToCornerTable">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="GoToCornerTable" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Board">[Board]</InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_RoundNumber">[TransactionNumber]</InArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_MyColor">[MyColor]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_AvailablePieces">[AvailablePieces]</InOutArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PlayTable">[ZerosTable]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:Int32, scg:List(sd1:Rectangle))" x:Key="in_RectangleDictionary">[RectangleDictionary]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PiecesDT">[PiecesDT]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PinLocationsDT">[PinLocationsDT]</InArgument>
+                          <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_clickedPopup">[clickedPopup]</InOutArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_GoToCornerTable">[GoToCornerTable]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -325,15 +303,36 @@
                       <TryCatch.Try>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="364.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\Framework\SetTransactionStatus.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                            <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
-                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryNumber]</InOutArgument>
-                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[TransactionNumber]</InOutArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">[TransactionField2]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">[TransactionID]</InArgument>
-                            <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[SystemException]</InArgument>
-                            <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[BusinessException]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+                              <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
+                            </InArgument>
+                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">
+                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
+                            </InOutArgument>
+                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
+                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
+                            </InOutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">
+                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField1" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">
+                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField2" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">
+                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionID" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">
+                              <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="SystemException" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">
+                              <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="BusinessException" />
+                            </InArgument>
+                            <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ClickedOnPopUp">
+                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="clickedPopup" />
+                            </InOutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </TryCatch.Try>
@@ -381,7 +380,7 @@
                   <Transition.To>
                     <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="253.6,105.6" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="561.6,2577.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="561.6,2294.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -389,7 +388,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="524.8,2058.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="524.8,1775.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="ui:Image" Name="mainScreenshot" />
                               </Sequence.Variables>
@@ -489,32 +488,16 @@
                               </ui:InvokeWorkflowFile>
                               <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Board" FoundElement="[Board]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
                                 <ui:WaitUiElementAppear.Target>
-                                  <ui:Target Element="{x:Null}" Id="e50b4738-1ecb-40b6-b10d-898e0f9f5633" InformativeScreenshot="e40ec33ffbcd2f0e571cb3c5e29001d3" Selector="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;&lt;webctrl tag='CANVAS' /&gt;">
+                                  <ui:Target Element="{x:Null}" Id="e50b4738-1ecb-40b6-b10d-898e0f9f5633" InformativeScreenshot="e40ec33ffbcd2f0e571cb3c5e29001d3" Selector="&lt;html app='chrome.exe' title='Blokee - Inspired by Blokus - Online Board Game' /&gt;&lt;webctrl tag='CANVAS' /&gt;" TimeoutMS="60000">
                                     <ui:Target.ClippingRegion>
                                       <ui:Region Rectangle="300, 23, 555, 557" />
                                     </ui:Target.ClippingRegion>
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
                                     <ui:Target.WaitForReady>
                                       <InArgument x:TypeArguments="ui:WaitForReady" />
                                     </ui:Target.WaitForReady>
                                   </ui:Target>
                                 </ui:WaitUiElementAppear.Target>
                               </ui:WaitUiElementAppear>
-                              <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="483.2,68.8" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[mainScreenshot]">
-                                <ui:TakeScreenshot.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[Board]" Id="e8f1e10a-1b00-4b54-832b-d49628b9b95f">
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:TakeScreenshot.Target>
-                              </ui:TakeScreenshot>
-                              <ui:SaveImage DisplayName="Save Image" FileName="mainScreenshot.png" sap:VirtualizedContainerService.HintSize="483.2,134.4" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[mainScreenshot]" />
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>

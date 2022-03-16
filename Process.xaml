@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>793.6,3639.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>786.4,3639.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -110,9 +110,7 @@
       <If.Then>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke WhoAmI workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Info" LogEntry="OnlyInvocation" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\UICommon\WhoAmI.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_myColor">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_myColor" />
-            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_myColor">[io_myColor]</OutArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Then>
@@ -146,15 +144,9 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SelectDefaultPieces workflow" sap:VirtualizedContainerService.HintSize="496.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Workflows\GameOpening\SelectDefaultPieces.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">
-                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_roundNumber" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_myColor">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_myColor" />
-              </InArgument>
-              <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_AvailablePieces">
-                <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="io_AvailablePieces" />
-              </InOutArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_roundNumber">[in_roundNumber]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_myColor">[io_myColor]</InArgument>
+              <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_AvailablePieces">[io_AvailablePieces]</InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <Assign DisplayName="Assign flip" sap:VirtualizedContainerService.HintSize="496.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
@@ -283,7 +275,7 @@
           </ui:InvokeWorkflowFile>
           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="483.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_13">
             <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416.8,506.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416.8,538.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -365,6 +357,9 @@
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_PlayerColor">
                 <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_MyColor" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_PiecesDT">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_PiecesDT" />
               </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>

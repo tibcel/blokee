@@ -86,7 +86,7 @@ def get_valid_positions(table, piece, starting_position, score, piece_name, rota
             resulted_table = (sliced_table.to_numpy() + piece.to_numpy())
 
             uniques = np.unique(resulted_table)
-            if not (11 in uniques or 21 in uniques) and 31 in uniques :
+            if not (11 in uniques or 21 in uniques) and (31 in uniques or 101 in uniques) :
                 print(f"valid position at {i} {j}")
                 #daca piesa e pusa peste un colt de al nostru 30 + 1 = 31
                 player_corners_covered = np.count_nonzero(resulted_table == 31)
